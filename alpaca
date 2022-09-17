@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+#sudo /etc/init.d/apache2
+
+#Uncoment this to print argument supplied
+#echo "Command: $1"
+
+
+start_func(){
+  sudo /etc/init.d/apache2 start
+
+}
+
+stop_func(){
+ sudo /etc/init.d/apache2 stop
+
+}
+
+restart_func(){
+  sudo /etc/init.d/apache2 restart
+
+}
+
+help_func(){
+  echo "alpaca is a command line tool that can be used to start, restart, stop a apache2 server and plent more functionalities"
+  echo ""
+  echo "Commands:"
+  echo ""
+  echo "-- MAIN --"
+  echo "start - starts apache2 server"
+  echo "stop - stops apache2 server"
+  echo "restart - restarts apache2 server"
+  echo "-- EXTRAS --"
+  echo "install-deb - install apache2 for debian based distros with apt package manager"
+  echo "ip - uses ip addr and grep to get and print ip adress"
+  echo ""
+  echo "please note that this command line tool is ment to be used for apache2 servers, I don't know how well this will work on other versions of the software."
+  echo ""
+  echo "-- Reminders --"
+  echo "to put content on your website/server put all files into /var/www"
+}
+
+debinstall_func(){
+  sudo apt update
+  sudo apt upgrade
+  sudo apt install apache2
+  sudo apt install net-tools
+  echo "NEED TO CONFIGURE NET-TOOLS YOURSELF"
+
+}
+
+ip_func(){
+  ip addr | grep 192.168
+
+}
+
+if [ $1 = start ]; then
+start_func
+exit 0
+else
+
+if [ $1 = stop ]; then
+stop_func
+exit 0
+else
+
+if [ $1 = restart ]; then
+restart_func
+exit 0
+else
+
+if [ $1 = help ]; then
+help_func
+exit 0
+else
+
+if [ $1 = install-deb ]; then
+debinstall_func
+exit 0
+else
+if [ $1 = ip ]; then
+ip_func
+exit 0
+else
+
+echo "error: invalid args try alpaca help"
+fi
+fi
+fi
+fi
+fi
+fi
