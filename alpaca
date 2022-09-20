@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #sudo /etc/init.d/apache2
 
+
 #Uncoment this to print argument supplied
 #echo "Command: $1"
 
@@ -53,33 +54,22 @@ ip_func(){
 
 }
 
-if [ $1 = start ]; then
-start_func
-exit 0
+if [[ $1 = "start" ]]; then start_func; exit 0
 else
 
-if [ $1 = stop ]; then
-stop_func
-exit 0
+if [[ $1 = "stop" ]]; then stop_func; exit 0
 else
 
-if [ $1 = restart ]; then
-restart_func
-exit 0
+if [[ $1 = "restart" ]]; then restart_func; exit 0
 else
 
-if [ $1 = help ]; then
-help_func
-exit 0
+if [[ $1 = "help" ]]; then help_func; exit 0
 else
 
-if [ $1 = install-deb ]; then
-debinstall_func
-exit 0
+if [[ $1 = "install-deb" ]]; then debinstall_func; exit 0
 else
-if [ $1 = ip ]; then
-ip_func
-exit 0
+
+if [[ $1 = "ip" ]]; then ip_func; exit 0
 else
 
 echo "error: invalid args try alpaca help"
