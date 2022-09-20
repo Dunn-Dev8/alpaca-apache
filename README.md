@@ -9,7 +9,7 @@ make file executable
 `chmod +x alpaca`
 
 move to bin folder (so you can execute anywhere)
-'cp alpaca /bin/`
+`cp alpaca /bin/`
 
 help
 `alpaca help`
