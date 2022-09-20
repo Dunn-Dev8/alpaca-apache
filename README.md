@@ -1,5 +1,8 @@
 # alpaca-apache
 
+## About
+Alpaca is a tool to manage/autimate an apache server.
+
 ## Install
 
 clone repo
